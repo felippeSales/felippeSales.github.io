@@ -1,0 +1,12 @@
+.center {
+    margin: auto;
+    padding: 10px;
+}
+
+.checkbox-right{
+    float: right;
+}
+
+body {
+    background-color: #c3e2ec;
+}
