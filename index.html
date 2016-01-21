@@ -10,40 +10,36 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/aguanossa.css">
-    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
-    <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+   
+    <script src="js/d3.v3.min.js" language="JavaScript"></script>
     <script src="js/liquidFillGauge.js" language="JavaScript"></script>
-    <style>
-        .liquidFillGaugeText {
-            font-family: Helvetica;
-            font-weight: bold;
-        }
-    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
 
 </head>
 
 <body>
     <div id="fb-root"></div>
+
     <script>
-        (function (d, s, id) {
+        ! function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s);
             js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+        }(document, 'script', 'facebook-jssdk');
     </script>
-    
-    
 
-    <nav class="navbar navbar-inverse">
+    <div class="row">
+        <img class="logo-banner" src="img/logo.png">
+    </div>
+
+    <nav class="navbar navbar-inverse" id="mainnav">
 
         <div class="container-fluid">
-            <div class="row">
-                <img src="img/logo.png" style="max-width: 100%; height: auto;">
 
-            </div>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
                     <span class="sr-only">Toggle navigation</span>
@@ -83,11 +79,16 @@
             </div>
         </div>
     </nav>
-
+<!--
+    <div class="spinner"  ng-show="isLoading">
+        <span us-spinner spinner-theme="bigWhite"></span>
+        <p style="margin-top: 40px;"><b>Conectando...</b></p>
+    </div>--><!--
+    <div class="container" ng-hide="isLoading">-->
     <div class="container">
         <div class="row">
             <div class="container">
-                
+
                 <!-- Facebook Badge END -->
                 <h2><center>Bem vindo ao Água Nossa!</center></h2>
                 <p class="well">Esta página foi desenvolvida como parte da pesquisa “Análise da Injustiça Ambiental no Abastecimento de Água em Espaços Urbanos”, desenvolvida no Programa de Pós-graduação em Recursos Naturais, com o apoio do Laboratório de Sistemas Distribuídos – LSD, da Unidade Acadêmica de Ciências da Computação, ambos da UFCG.
@@ -104,7 +105,7 @@
                         <div class="col-sm-3">
                             <h5>Volume atual:</h5>
                             <div class="center">
-                                <svg id="graficoVolume" width="100%" style="max-height: 250px;"></svg>
+                                <svg id="graficoVolume" width="100%"></svg>
                             </div>
                         </div>
                         <div class="col-sm-9">
@@ -119,14 +120,15 @@
 
         </div>
 
-        <div class="row">
+        <div class="row" ng-controller="MapaDeRegistros">
 
 
             <div class="col-sm-3 col-xs-10">
-                
+
                 <!-- Facebook Badge START -->
-                <div  style="padding-bottom: 10px; border-radius: 25px;">
-                    <div class="fb-page" data-href="https://www.facebook.com/&#xc1;guaNossa-1381791065449679/" data-tabs="timeline" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div></div>
+                <div style="padding-bottom: 10px; border-radius: 25px;">
+                    <div class="fb-page" data-href="https://www.facebook.com/&#xc1;guaNossa-1381791065449679/" data-tabs="timeline" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+                </div>
 
                 <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/aesagovpb" data-widget-id="651452839827480576">Tweets by @aesagovpb</a>
 
@@ -150,13 +152,13 @@
                             <tbody>
                                 <tr class="info">
                                     <td>Faltas de Água:</td>
-                                    <td>X</td>
+                                    <td>{{faltasDeAgua}}</td>
                                     <td><a href="https://docs.google.com/forms/d/1l5rtDV_j4lWIs4e-k2GsOqCIVjX5JbAYArhBgckHpw8/viewform?edit_requested=true" class="btn btn-info btn-xs">Contribua</a></td>
                                 </tr>
 
                                 <tr class="info">
                                     <td>Vazamentos:</td>
-                                    <td>X</td>
+                                    <td>{{vazamentos}}</td>
                                     <td><a href="https://docs.google.com/forms/d/1v0n4H-u-K9EgPMaY8AUWMtKng56Sy6cZF8Z3Crlessc/viewform" class="btn btn-info btn-xs">Contribua</a></td>
                                 </tr>
                         </table>
@@ -173,37 +175,27 @@
                         <div class="input-group ">
                             <div class="checkbox badge">
                                 <label>
-                                    <input type="checkbox" checked> Vazamentos
+                                    <input ng-model="visualizar.vazamentos" type="checkbox"> Vazamentos
                                 </label>
 
                                 <label>
-                                    <input type="checkbox" checked> Faltas de Água
+                                    <input ng-model="visualizar.faltasDeAgua" type="checkbox"> Faltas de Água
                                 </label>
                             </div>
                         </div>
                     </div>
+
                     <div class="panel-body">
+
+                        <div id="map-container" class="row">
+                            <div id="map-canvas"></div>
+                        </div>
 
                     </div>
                     <div class="panel-footer">
-                        <div class="form-inline">
-                            <div id="datetimepicker1" class="form-group input-append date">
-                                De:
-                                <input class="form-control" data-format="dd/MM/yyyy" type="text"></input>
-                                <span class="add-on glyphicon glyphicon-calendar"></span>
-                            </div>
-
-                            <div id="datetimepicker2" class="form-group input-append date" style="padding-left: 2px;">
-                                Até:
-                                <input class="form-control" data-format="dd/MM/yyyy" type="text"></input>
-                                <span class="add-on glyphicon glyphicon-calendar"></span>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
-
-
                 <center>
                     <div class="col-xs-12 well">
                         <div class="fb-comments" data-href="https://contribua.org/aguanossa/" data-numposts="5"></div>
@@ -216,9 +208,16 @@
 
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-datetimepicker.min.js"></script>
-    <script src="js/angular.min.js"></script>
-
+    <script src="bower_components/angular/angular.min.js"></script>
+    <!--
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <scrpit src="bower_components/angular-messages/angular-messages.min.js"></scrpit>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+-->
+    
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular-spinner/angular-spinner.js"></script>
 
     <script src="js/app.js"></script>
 
@@ -226,26 +225,29 @@
     <!-- TWITTER -->
     <script>
         ! function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-                p = /^http:/.test(d.location) ? 'http' : 'https';
+            var js, fjs = d.getElementsByTagName(s)[0];
             if (!d.getElementById(id)) {
                 js = d.createElement(s);
                 js.id = id;
-                js.src = p + "://platform.twitter.com/widgets.js";
+                js.src = "js/widgets.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }
         }(document, "script", "twitter-wjs");
     </script>
 
-    <!-- Calendar -->
-    <script type="text/javascript">
-        $('#datetimepicker1').datetimepicker({
-            format: 'dd/MM/yyyy',
-            language: 'pt-BR'
-        });
-        $('#datetimepicker2').datetimepicker({
-            format: 'dd/MM/yyyy',
-            language: 'pt-BR'
+    <!-- Navbar -->
+
+    <script>
+        $(document).ready(function () {
+            var navpos = $('#mainnav').offset();
+            console.log(navpos.top);
+            $(window).bind('scroll', function () {
+                if ($(window).scrollTop() > navpos.top) {
+                    $('#mainnav').addClass('navbar-fixed-top');
+                } else {
+                    $('#mainnav').removeClass('navbar-fixed-top');
+                }
+            });
         });
     </script>
 
