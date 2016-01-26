@@ -58,7 +58,7 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
             faltaDeAgua: [],
             vazamentos: []
         };
-
+        console.log("Loading");
         $http.get("https://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_notifications").then(function (response) {
 
             $scope.notifications.faltaDeAgua = response.data;
