@@ -8,6 +8,7 @@ var lat_lng_array = {
 };
 
 var FALTA_MARKER_ICON = "img/aguanossa-marker.png";
+var VAZAMENTO_MARKER_ICON = "img/vazamento-marker.png";
 var UPDATE_INTERVAL = 10000;
 
 app.config(['usSpinnerConfigProvider', function (usSpinnerConfigProvider) {
@@ -24,11 +25,13 @@ app.controller('GraficoVolume', function ($scope, $rootScope, $http) {
     $scope.chartConfig.textVertPosition = 0.5;
     $scope.chartConfig.waveAnimateTime = 1500;
     $scope.chartConfig.waveCount = 3;
+    $rootScope.isLoadingVolume = true;
 
-    $http.get("https://aguaeco-celiobarros.rhcloud.com/volume_boqueirao")
+    $http.get("https://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_volume_boqueirao")
         .then(function (response) {
-            $scope.graficoVolume = response.data[0].volume;
+            $scope.graficoVolume = response.data;
             $scope.chart = loadLiquidFillGauge("graficoVolume", $scope.graficoVolume, $scope.chartConfig);
+            $rootScope.isLoadingVolume = false;
         })
 
 });
@@ -40,7 +43,7 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
     $scope.vazamentos = 0;
     $scope.notifications = {};
     $scope.visualizar = {};
-    $rootScope.isLoading = true;
+    $rootScope.isLoadingNotifications = true;
 
     $scope.initialize = function () {
         googleMapsInit();
@@ -58,7 +61,7 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
             faltaDeAgua: [],
             vazamentos: []
         };
-        console.log("Loading");
+
         $http.get("https://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_notifications").then(function (response) {
 
             $scope.notifications.faltaDeAgua = response.data;
@@ -100,14 +103,9 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
 
             $scope.vazamentos = $scope.notifications.vazamentos.length;
             
-            $rootScope.isLoading = false;
+            $rootScope.isLoadingNotifications = false;
 
         });
-        
-        
-
-
-
     }
 
     $scope.$watch("visualizar.faltasDeAgua",
@@ -139,7 +137,6 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
     );
 
     $scope.initialize();
-
 
 });
 
@@ -312,7 +309,7 @@ function placeVazamentoMarker(location) {
         draggable: false,
         map: map,
         //animation: google.maps.Animation.DROP,
-        //icon: DEFAULT_MARKER_ICON,
+        icon: VAZAMENTO_MARKER_ICON,
         //title : "Hello World!"
         type: "default"
     });
