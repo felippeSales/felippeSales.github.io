@@ -1,0 +1,41 @@
+
+
+
+
+article{
+ width: 100%;
+}
+
+
+article h3{
+ color: #00ADB5;
+}
+
+.btn-default{
+    background-color: #00ADB5;
+    font-weight: bold;
+    color: #EEEEEE;
+}
+
+.btn-default:hover{
+    background-color: #00ADB5;
+    font-weight: bold;
+    color: #EEEEEE;
+}
+
+#jumb2{
+    margin-bottom: 0px; 
+}
+
+article p{
+    text-align: justify;
+}
+
+
+.title h1{
+    background-color: #00ADB5;
+    border-radius: 25px 50px 25px 50px;
+    color: #EEEEEE;
+    width: 60%;
+    text-align: center;
+}
