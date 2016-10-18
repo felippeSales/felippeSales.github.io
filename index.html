@@ -12,7 +12,6 @@
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/sidebar.css" rel="stylesheet">
-    <link href="/css/content.css" rel="stylesheet">
 
 </head>
 
@@ -23,49 +22,66 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
 
-            <div class="row">
-                <div class="card hovercard">
-                    <div class="cardheader">
+            <div class="card">
 
-                    </div>
-                    <div class="avatar">
-                        <img alt="" src="/img/profile.jpg">
-                    </div>
-                    <div class="info">
-                        <div class="title">
-                            Felipe Sales
-                        </div>
-                        <div class="desc">Hard worker</div>
-                        <div class="desc">Self motivated</div>
-                        <div class="desc">Curious developer</div>
+                <div class="cardheader">
 
+                </div>
+                <div class="avatar">
+                    <img alt="" src="/img/profile.png">
+                </div>
+                <div class="info">
+                   
+                    <div class= "title">
+                        Felipe Sales
                     </div>
-                    <div class="bottom">
-                        <div class="social">
 
+
+                    <div class="social-icons">
                             <a href="https://github.com/felippesales" class="[ social-icon github ] animate"><span class="fa fa-github-alt"></span></a>
 
-                            <a href="https://www.linkedin.com/in/salesfelipe" class="[ social-icon linkedin ] animate"><span class="fa fa-linkedin"></span></a>
-                        </div>
-
+                        <a href="https://www.linkedin.com/in/salesfelipe" class="[ social-icon linkedin ] animate"><span class="fa fa-linkedin"></span></a>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <ul class="sidebar-nav">
+            <ul class="sidebar-nav">
 
-                    <li ui-sref-active="active">
-                        <a ui-sref="About"> <i class="fa fa-child fa-lg" aria-hidden="true"></i><span> About me</span></a>
-                    </li>
-                    <li ui-sref-active="active">
-                        <a ui-sref="Experience"> <i class="fa fa-graduation-cap fa-lg" aria-hidden="true"></i><span> Experience</span></a>
-                    </li>
-                    
-                </ul>
-            </div>
+                <li ui-sref-active="active">
+                    <a ui-sref="About"> <i class="fa fa-child fa-lg" aria-hidden="true"></i><span> About me</span></a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="Experience"> <i class="fa fa-graduation-cap fa-lg" aria-hidden="true"></i><span> Experience</span></a>
+                </li>
+
+                <li ui-sref-active="active">
+                    <a ui-sref="Skills"> <i class="fa fa-list-ul fa-lg" aria-hidden="true"></i><span> Skills</span></a>
+                </li>
+                
+                <!--
+
+                <li ui-sref-active="active">
+                    <a ui-sref="Portfolio"> <i class="fa fa-laptop fa-lg" aria-hidden="true"></i><span> Portfolio</span></a>
+                </li>
+
+                <li ui-sref-active="active">
+                    <a ui-sref="Contact"> <i class="fa fa-laptop fa-lg" aria-hidden="true"></i><span> Contact</span></a>
+                </li> -->
+
+            </ul>
+
+            <!--
+            <div id="radar">
+
+                <div id="radar-body">
+                    <div id="chart"></div>
+                </div>
+
+            </div> -->
         </div>
+
         <!-- /#sidebar-wrapper -->
+
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -77,18 +93,24 @@
 
         </div>
         <!-- /#page-content-wrapper -->
-
     </div>
+
 
     <!-- /#wrapper -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/js/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    <script src="/js/radar.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-ui-router.min.js"></script>
     <script src="/js/main.js"></script>
+
+
+    <script src="/js/script.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>

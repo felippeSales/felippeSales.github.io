@@ -3,6 +3,8 @@
     background-color: #222831;
  }
 
+html, body { height: 100%; width: 100%; margin: 0; }
+
 #page-content-wrapper {
     margin-top: 4%;
     width: 96%;
@@ -11,13 +13,13 @@
 .active {
     text-color: #fff;
     background: rgba(0,173,181,0.2);
-    box-shadow: 0px 0px 10px rgba(255,255,255, 0.7);
+    box-shadow: 0px 1px 2px 2px rgba(0,0,0, 0.2);
 }
 
 #page-content {
     width: inherit;
-    background-color: #EEEEEE;
-    box-shadow: 0px 0px 20px rgba(0,173,181, 0.7);
+    background-color: #393E46;
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.2);
 }
 
 #wrapper {
@@ -29,3 +31,27 @@
 }
 
 
+.custom-container {
+    
+    position: relative;
+    height: 100%;
+    padding: 5%;
+    margin: auto;
+    margin-bottom: 2%;
+    width: 92%;
+    background: #EEEEEE;
+}
+
+
+article {
+    height: 100%;
+    width: 100%;
+}
+
+.title h2 {
+    background-color: #00ADB5;
+    border-radius: 25px 50px 25px 50px;
+    color: #EEEEEE;
+    width: 60%;
+    text-align: center;
+}
