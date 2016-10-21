@@ -10,8 +10,9 @@
 
     <link href="/css/bootstrap.paper.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/sidebar.css" rel="stylesheet">
+
+    <link href="/less/felipe.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -22,42 +23,84 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
 
-            <div class="card">
+
+            <div class="col-md-12 card">
 
                 <div class="cardheader">
-
                 </div>
+
                 <div class="avatar">
                     <img alt="" src="/img/profile.png">
                 </div>
+
                 <div class="info">
-                   
-                    <div class= "title">
+
+                    <div class="title">
                         Felipe Sales
                     </div>
 
+                    <a href="https://github.com/felippesales" class="[ social-icon github ] animate" target="_blank"><span class="fa fa-github-alt"></span></a>
 
-                    <div class="social-icons">
-                            <a href="https://github.com/felippesales" class="[ social-icon github ] animate"><span class="fa fa-github-alt"></span></a>
-
-                        <a href="https://www.linkedin.com/in/salesfelipe" class="[ social-icon linkedin ] animate"><span class="fa fa-linkedin"></span></a>
-                    </div>
+                    <a href="https://www.linkedin.com/in/salesfelipe" class="[ social-icon linkedin ] animate" target="_blank"><span class="fa fa-linkedin"></span></a>
+                    
                 </div>
             </div>
 
-            <ul class="sidebar-nav">
 
-                <li ui-sref-active="active">
-                    <a ui-sref="About"> <i class="fa fa-child fa-lg" aria-hidden="true"></i><span> About me</span></a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="Experience"> <i class="fa fa-graduation-cap fa-lg" aria-hidden="true"></i><span> Experience</span></a>
-                </li>
 
-                <li ui-sref-active="active">
-                    <a ui-sref="Skills"> <i class="fa fa-list-ul fa-lg" aria-hidden="true"></i><span> Skills</span></a>
-                </li>
-                
+            <div class="col-md-12 sidebar-nav">
+
+                <div class="col-md-4" ui-sref-active="active">
+
+                    <a ui-sref="About">
+                        <p class="icon">
+                            <i class="fa fa-child fa-lg" aria-hidden="true"></i>
+                        </p>
+                        <p class="desc">
+                            <span> About me</span>
+                        </p>
+                    </a>
+                </div>
+                <div class="col-md-4" ui-sref-active="active">
+                    <a ui-sref="Experience">
+                        <p class="icon">
+                            <i class="fa fa-graduation-cap fa-lg" aria-hidden="true"></i></p>
+                        <p class="desc">
+                            Experience
+                        </p>
+                    </a>
+                </div>
+                <div class="col-md-4" ui-sref-active="active">
+                    <a ui-sref="Skills">
+                        <p class="icon">
+                            <i class="fa fa-tasks fa-lg" aria-hidden="true"></i>
+                        </p>
+                        <p class="desc">
+                            Skills
+                        </p>
+                    </a>
+                </div>
+                <div class="col-md-4" ui-sref-active="active">
+                    <a ui-sref="Contact">
+                        <p class="icon">
+                            <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+                        </p>
+                        <p class="desc">
+                            Contact
+                        </p>
+                    </a>
+                </div>
+                <div class="col-md-4" >
+                    <a href="/download/resume.pdf" target="_blank">
+                        <p class="icon">
+                            <i class="fa fa-download fa-lg" aria-hidden="true"></i>
+                        </p>
+                        <p class="desc">
+                            Resume
+                        </p>
+                    </a>
+                </div>
+
                 <!--
 
                 <li ui-sref-active="active">
@@ -68,7 +111,7 @@
                     <a ui-sref="Contact"> <i class="fa fa-laptop fa-lg" aria-hidden="true"></i><span> Contact</span></a>
                 </li> -->
 
-            </ul>
+            </div>
 
             <!--
             <div id="radar">
@@ -86,7 +129,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
 
-            <div class="container" id="page-content">
+            <div class="col-md-12" id="page-content">
 
                 <ui-view></ui-view>
             </div>
@@ -112,13 +155,6 @@
 
     <script src="/js/script.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
 </body>
 
 </html>

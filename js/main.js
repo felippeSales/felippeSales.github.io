@@ -27,6 +27,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "/templates/portfolio.html",
     });
     
+    $stateProvider.state('Contact', {
+        url: "/Contact",
+        templateUrl: "/templates/contact.html",
+    });
+    
     $urlRouterProvider.otherwise('/About');
     
 });
