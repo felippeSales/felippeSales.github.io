@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Felipe Sales personal website">
+    <meta name="keywords" content="Web,Developer,Campina,Grande,Mobile,Felipe,Sales">
+    <meta name="author" content="Felipe Sales">
+
+    <title>Felipe Sales</title>
+
+    <link href="/css/bootstrap.paper.min.css" rel="stylesheet">
+    <link href="/grafico/grafico.css" rel="stylesheet">
+</head>
+
 <body>
 
-<h1>My First Heading</h1>
+    <div class="container">
+        <h1>Qual a cara da aleatoriedade?</h1>
 
-<p>My first paragraph.</p>
+        <h3>Little intro:</h3>
+        <p>Tomando como ponto de partida os dados obtidos através dessa pesquisa: <a href="https://nazareno.typeform.com/to/giC9Vw" target="_blank">link</a>. Nós desejamos descobrir se a aleatoriedade tem um número favorito, ou seja, se as pessoas em momentos aleatorios tendem a escolher um mesmo númeor e se o tempo que a pessoa demora para responder influencia em quão aleatoria ela afirma ter sido.</p>
 
+        <h3> Little Draft (goal): </h3>
+
+        <div class="row">
+            <div class="col-md-3"></div>
+
+            <div class="col-md-6">
+                <img src="grafico/draft.png"></img>
+                <p id="legenda">Draft usando Tableau</p>
+            </div>
+
+            <div class="col-md-3"></div>
+        </div>
+
+        <h3> Resultado (D3): </h3>
+
+        <div class="row">
+            <div id="chart"></div>
+        </div>
+
+
+
+    </div>
+
+    <script src="/js/d3.min.js"></script>
+    <script src="/grafico/grafico.js"></script>
 </body>
+
 </html>
