@@ -5,7 +5,13 @@ body {
     margin: 0;
     overflow-x: hidden;
     background-color: #393E46;
+    
 }
+
+html{
+    overflow-y: hidden;
+}
+
 
 h1,
 h2,
@@ -17,13 +23,14 @@ h3 {
 
 h3 {
     text-align: left;
-    padding-bottom: 3%;
+    padding-bottom: 2%;
 }
 
 p {
     color: #EEEEEE;
     font-size: 20px;
-    padding-top: 5%;
+    padding-top: 2%;
+    text-align: justify;
 }
 
 img {
@@ -37,5 +44,40 @@ img {
 }
 
 #chart{
-    background: #EEEEEE;
+    background: rgba(238, 238, 238, 0.2);
+}
+
+.grid line {
+  stroke: #EEEEEE ;
+  stroke-opacity: 0.7;
+  shape-rendering: geometricPrecision;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+g path{
+    stroke: #EEEEEE;
+}
+
+g line{
+    stroke: #EEEEEE;
+}
+
+g text{
+    font-size: 15px;
+    fill: #EEEEEE;    
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 250px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: #EEEEEE;	
+    border: 3px;
+    border-color: black;
+    pointer-events: none;
 }
