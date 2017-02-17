@@ -1,0 +1,74 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #393E46;
+    
+}
+
+html{
+    overflow-y: hidden;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+    color: #00ADB5;
+    padding-top: 10%;
+    text-align: center;
+}
+
+h3 {
+    text-align: left;
+    padding-bottom: 2%;
+}
+
+p {
+    color: #EEEEEE;
+    font-size: 20px;
+    padding-top: 2%;
+    text-align: justify;
+}
+
+img {
+    padding-top: 3%;
+    margin: auto;
+}
+
+.legenda {
+    font-size: 14px;
+    text-align: center;
+}
+
+img {
+    padding-top: 3%;
+    margin: auto;
+    width: 100%;
+}
+
+.legend {
+    font-family: 'Raleway', sans-serif;
+    fill: #EEE;
+}
+
+.tooltip {
+    fill: #333333;
+}
+
+
+g text{
+    font-size: 15px;
+    fill: #EEEEEE;    
+}
+
+.cor-azul {
+    color: #00ADB5;
+}
+
+.cor-amarelo {
+    color: #f0d43a;
+}

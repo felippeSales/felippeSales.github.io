@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/ >
+    <title>Lab 3 - Visualização de Dados</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+    <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <link href="/css/bootstrap.paper.min.css" rel="stylesheet">
+    <link href='/vd-lab3/chart.css' rel='stylesheet' type='text/css'>
+    
+  
+  </head>
+  <body>
+    <div class="container">
+        <h2>Quais os números mais escolhidos na primeira pergunta? E na sétima?</h2>
+        <p>Para entendermos a visualização, vemos o eixo X como as respostas, tanto para a primeira pergunta como para a
+        segunda. E no eixo Y vemos a frequência das respostas em porcentagem.</p>
+        <p>Para entender a parte do eixo X, temos que os nomes seguem o padrão Pri_X  e Set_X, que são as respostas
+        para a primeira pergunta e sétima do formulário. Sendo X o número escolhido</p>
+
+        <h3> Versão original: </h3>
+
+        <div class="row">
+            <div class="col-md-3"></div>
+
+            <div class="col-md-6">
+                <img src="vd-lab3/v1.png"></img>
+                <p class="legenda">Gráfico feito por Caio Batista. <a href="http://caio-batista.github.io/" target="_blank">link</a></p>
+            </div>
+
+            <div class="col-md-3"></div>
+        </div>
+
+        <h3> Versão refatorada: </h3>
+    
+        <div class="row">
+            
+            <div class="row">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    <div class="radarChart"></div>
+                    <p class="legenda">A parte <b class="cor-azul">#Azul</b> representa as respostas da sétima pergunta
+                    e a parte <b class="cor-amarelo">#Amarela</b> representa as respostas da primeira pergunta.</p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <p> A minha ideia ao refatorar o gráfico foi sobrepor os dados de forma a melhorar a comparação individual. Outro problema que notei no gráfico antigo foi que não era possível ver a informação exata de cada dado, sendo assim eu adicionei um tooltip sobre os pontos para mostrar com precisão a informação para o usuário. Como nós temos os números de 0 - 9 também me pareceu interessante fugir do formato sequencial em linha e tentar o radial, como um relógio, decisão puramente estética.  </p>
+            </div>
+                
+        </div>
+
+
+
+    </div>
+
+
+    <script src="vd-lab3/radarChart.js"></script> 
+    <script src="vd-lab3/chart.js"></script>
+  </body>
+</html>
